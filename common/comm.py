@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-class Comm1():
+class Comm():
     def __init__(self,browser=''):
         try:
             if browser == 'ff' or browser == 'Firefox':
@@ -28,6 +28,7 @@ class Comm1():
         self.element = self.driver.find_element(id,value)
         return self.element
 
+
     # 点击功能
     def click(self):
           self.element.click()
@@ -42,9 +43,12 @@ class Comm1():
     def WebDriver(self,timeout,method):
         try:
           WebDriverWait(self.driver,timeout,5).until(method)
-        except TimeoutError:
-            return False
+        except Exception as msg:
+            print("Error:%s" % msg)
 
     # 隐示等待
     def implicitly(self,value):
         self.driver.implicitly_wait(value)
+
+    # 截图
+
