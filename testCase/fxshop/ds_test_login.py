@@ -16,6 +16,10 @@ class Login_test_ds(unittest.TestCase):
         self.login.input_password("ceshi123")
         time.sleep(5)
         self.login.input_submit()
+        self.login.title(u'法宣在线|普法网_国家工作人员在线学法考试平台')
+        if self.login.title(self.login.driver)==True:
+            print('pass')
+
 
 
 

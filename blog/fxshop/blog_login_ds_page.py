@@ -26,12 +26,20 @@ class ds_login(Comm):
         self.input_name(name)
         self.input_password(pas)
 
-
+    def test(self):
+        self.openurl("http://faxuan.net/bps/login/t/login_1_t.html?return_url=/")
+        self.WebDriver(10,self.title_contains(u"登录"))
+        # self.title_contains(u"登录")
+        # print(self.title_contains(self.driver))
+        print(self.driver.title)
+        # if c == True:
+        #    print('页面正确')
 
     # 其他方式登录
 if __name__ == "__main__":
     c=ds_login()
-    c.openurl("http://faxuan.net/bps/login/t/login_1_t.html?return_url=/")
-    c.login("15011530850","ceshi123")
-    time.sleep(5)
-    c.input_submit()
+    # c.openurl("http://faxuan.net/bps/login/t/login_1_t.html?return_url=/")
+    # c.login("15011530850","ceshi123")
+    # time.sleep(5)
+    # c.input_submit()
+    c.test()

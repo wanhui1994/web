@@ -43,6 +43,7 @@ class Comm():
     def WebDriver(self,timeout,method):
         try:
           WebDriverWait(self.driver,timeout,5).until(method)
+          return True
         except Exception as msg:
             print("标题错误！")
 
@@ -54,3 +55,12 @@ class Comm():
     def screenshot(self):
         path=""
         self.driver.get_screenshot_as_file(path)
+
+    #-----------------判断-------------------
+    #title判断
+    def title(self,name):
+        title = EC.title_is(name)  #判断title完全等于
+
+    def title_contains(self,name):
+        title_contains = EC.title_contains(name)  #判断title包含
+
