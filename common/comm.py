@@ -56,6 +56,7 @@ class Comm():
         path=""
         self.driver.get_screenshot_as_file(path)
 
+
     #-----------------判断-------------------
     #title判断
     def title(self,name):
