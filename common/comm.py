@@ -3,6 +3,7 @@
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 
 class Comm():
     def __init__(self,browser='ff'):
@@ -24,8 +25,11 @@ class Comm():
    # 定义元素获取
     def element(self,locator):
         # element = WebDriverWait(self.driver, 30, 1).until(lambda x: x.find_element(*locator)) #方案1
-        element=self.driver.find_element(*locator) # *号是把两个参数分开传值  方案2
-        return element
+        try:
+            element=self.driver.find_element(*locator) # *号是把两个参数分开传值  方案2
+            return element
+        except NoSuchElementException as msg:
+            print('元素查找异常：%s'%msg)
 
     # 点击功能
     def click(self,locator):

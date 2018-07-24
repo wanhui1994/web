@@ -1,7 +1,9 @@
 # coding=utf-8
+
+#学法电商子站登录
 from web.common.comm import Comm
 import time
-from selenium import webdriver
+
 
 class ds_login(Comm):
     name_locator = ("id","userAccount")
@@ -40,7 +42,9 @@ class ds_login(Comm):
         else:
             print("页面校验失败",title)
 
-    def cc(self):
-        path1="html/body/div[6]/div[1]/div[1]/ul/li[1]/a"
+    # 切换到子站的页面
+    def qh(self):
+        path1="html/body/div[6]/div[1]/div[1]/ul/li["
+        path2="]/a"
         self.driver.find_element_by_xpath(path1).click()
 
