@@ -39,7 +39,7 @@ class Comm():
    # 输入信息
     def send(self,locator,txt):
         element = self.element(locator)
-        element.clear()
+        # element.clear()
         element.send_keys(txt)
 
 
@@ -47,9 +47,10 @@ class Comm():
     def WebDriver(self,timeout,method):
         try:
           WebDriverWait(self.driver,timeout,5).until(method)
-          return True
+          print('查找到元素了')
         except Exception as msg:
-            print("标题错误！")
+            print("元素未找到")
+
 
     # 隐示等待
     def implicitly(self,value):
@@ -59,6 +60,11 @@ class Comm():
     def screenshot(self):
         path=""
         self.driver.get_screenshot_as_file(path)
+
+    # 停止页面加载,并且刷新页面
+    def page_timeout(self,num):
+        self.driver.set_page_load_timeout(num)
+
 
 
     #-----------------判断-------------------

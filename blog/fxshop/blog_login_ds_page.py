@@ -2,14 +2,14 @@
 
 #学法电商子站登录
 from web.common.comm import Comm
-import time
-
+from web.common.query import Py
 
 class ds_login(Comm):
     name_locator = ("id","userAccount")
     password_locator = ("id","userPassword")
-    submit_locator = ("className","login_button")
+    submit_locator = ("xpath","html/body/div[4]/div[1]/a[1]")
     code_locator=("id","usercheckcode")
+
 
     def input_name(self,name):
         self.send(self.name_locator,name)
@@ -22,11 +22,6 @@ class ds_login(Comm):
 
     def input_submit(self):
         self.click(self.submit_locator)
-
-    def login(self, name, pas, code):
-        self.input_name(name)
-        self.input_password(pas)
-        self.input_checkcode(code)
 
     def close(self):
         self.driver.close()
@@ -44,7 +39,13 @@ class ds_login(Comm):
 
     # 切换到子站的页面
     def qh(self):
-        path1="html/body/div[6]/div[1]/div[1]/ul/li["
-        path2="]/a"
-        self.driver.find_element_by_xpath(path1).click()
+        for i in range(31):
+           path1="html/body/div[6]/div[1]/div[1]/ul/li["
+           path2="]/a"
+           self.driver.find_element_by_xpath(path1).click()
+
+    def login(self, name, pas, code):
+        self.input_name(name)
+        self.input_password(pas)
+        self.input_checkcode(code)
 

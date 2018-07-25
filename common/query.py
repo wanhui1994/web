@@ -22,5 +22,7 @@ class Py():
                  pass
             else:
                 b.append(li1.attr('href'))
+
         return b
+
 
