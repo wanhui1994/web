@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
+from pyvirtualdisplay import Display
+
 
 class Comm():
     def __init__(self,browser='ff'):
@@ -42,6 +44,10 @@ class Comm():
         # element.clear()
         element.send_keys(txt)
 
+    # 获取元素上的文字
+    def text(self,locator):
+        element = self.element(locator).text
+        return element
 
    # 显示等待
     def WebDriver(self,timeout,method):
@@ -64,6 +70,18 @@ class Comm():
     # 停止页面加载,并且刷新页面
     def page_timeout(self,num):
         self.driver.set_page_load_timeout(num)
+
+    # 关闭当前页面
+    def clos(self):
+        self.driver.close()
+
+    def quit(self):
+        self.driver.quit()
+
+    #浏览器后台运行--静默模式
+    def silent (self):
+         display = Display(visible=0, size=(800, 600))
+         display.start()
 
 
 

@@ -1,11 +1,14 @@
 # coding=utf-8
 from web.common.comm import Comm
+url = "http://faxuan.net"
+class home_page(Comm):
 
-class home_page():
-    def __init__(self):
-        self.c = Comm()
     def login(self):
-        self.c.element("xpath",".//*[@id='hfright']/a[1]")
+        login_locator=("xpath",".//*[@id='hfright']/a[1]")
+        self.click(login_locator)
 
-    def register(self):
-        self.c.element("xpath",".//*[@id='hfright']/a[2]")
+    def userhome(self):
+        '''点击用户中心图标'''
+        login_locator=("id","gouserhome")
+        self.click(login_locator)
+

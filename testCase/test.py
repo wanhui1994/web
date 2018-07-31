@@ -1,5 +1,5 @@
 # coding=utf-8
-from web.blog.fxshop.blog_login_ds_page import ds_login
+from web.blog.fxshop.blog_login_xf_page import ds_login
 
 from web.common.query import Py
 
